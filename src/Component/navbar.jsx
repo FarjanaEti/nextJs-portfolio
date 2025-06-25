@@ -1,6 +1,8 @@
 "use client";
+import Image from 'next/image';
 import Link from 'next/link'
 import React, { useState } from 'react'
+import NavLink from './navLink';
 
 const links = [
   { url: "/", title: "Home" },
@@ -12,8 +14,14 @@ export default function Navbar() {
   const [open,setOpen]=useState(false);
   return (
     <div className='h-full items-center justify-between flex px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48'>
-     {/* logo */}
-     <div className='md:hidden lg:flex xl:w-1/3 xl:justify-center'>
+     {/* link for big screen */}
+     <div className='hidden md:flex  gap-4 w-1/3'>
+     {links.map((link) => (
+          <NavLink link={link} key={link.title} />
+        ))}
+     </div>
+     {/* logo in middle  */}
+     <div className='md:hidden lg:flex   w-1/3 xl:justify-center'>
       <Link
           href="/"
           className="text-sm bg-black rounded-md p-1 font-semibold flex items-center justify-center"
@@ -26,8 +34,29 @@ export default function Navbar() {
           </span>
         </Link>
       </div>   
-      {/* menu button */}
-     <div>
+   {/* social  at right*/}
+    <div className="hidden justify-end md:flex gap-4 w-1/3">
+        <Link href="https://github.com/FarjanaEti">
+          <Image src="/github.png" alt="" width={24} height={24} />
+        </Link>
+        <Link href="/">
+          <Image src="/dribbble.png" alt="" width={24} height={24} />
+        </Link>
+        <Link href="/">
+          <Image src="/instagram.png" alt="" width={24} height={24} />
+        </Link>
+        <Link href="/">
+          <Image src="/facebook.png" alt="" width={24} height={24} />
+        </Link>
+        <Link href="/">
+          <Image src="/pinterest.png" alt="" width={24} height={24} />
+        </Link>
+        <Link href="/">
+          <Image src="/linkedin.png" alt="" width={24} height={24} />
+        </Link>
+      </div>
+      {/*Responsive menu  */}
+     <div className='md:hidden'>
       <button className='w-10 h-8 flex z-50 relative flex-col justify-between'
       onClick={()=>setOpen((prev)=>(!prev))}>
         <div className='w-10 h-1 bg-black rounded-2xl'></div>
