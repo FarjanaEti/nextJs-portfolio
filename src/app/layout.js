@@ -1,6 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/Component/navbar";
+import TransitionProvider from "@/Component/transitionProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,14 +23,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="w-screen min-h-screen bg-gradient-to-b from-blue-50 to-red-100">
-
-         <div className="h-24">
-          <Navbar></Navbar>
-         </div>
-        <div className="min-h-[calc(100vh-6rem)]">{children}</div>
-
-        </div>
+        <TransitionProvider>{children}</TransitionProvider>
       </body>
     </html>
   );

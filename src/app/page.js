@@ -1,7 +1,14 @@
+"use client"
 import Image from "next/image";
-
+import { motion } from "framer-motion";
 export default function HomePage() {
   return (
+    <motion.div
+      className="h-full"
+      initial={{ y: "-200vh" }}
+      animate={{ y: "0%" }}
+      transition={{ duration: 1 }}
+    >
     <div  className="flex flex-col lg:flex-row px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
      {/* //left image */}
      <div className="relative w-full h-[300px] lg:w-1/2 lg:h-[600px]">
@@ -39,5 +46,6 @@ export default function HomePage() {
         </div>
 
     </div>
+    </motion.div>
   );
 }
