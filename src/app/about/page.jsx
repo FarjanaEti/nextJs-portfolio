@@ -1,13 +1,19 @@
 "use client"
-import React, { useRef } from 'react'
+import React, { useRef } from 'react'//useRef() creates a reference to a DOM element (like a div).
 import { motion, useInView, useScroll } from "framer-motion";
 import Brain from '@/Component/brain';
 import Image from 'next/image';
 
+//useScroll=Framer Motion hook that tracks how far the user has scrolled within a specific container.
+//{ container: containerRef }: you're saying “watch the scrolling that happens inside the element referenced by containerRef.
+//If you're scrolling the whole page, use const { scrollYProgress } = useScroll(); scroll limit between 0,1
+
+
 export default function AboutPage() {
  const containerRef = useRef();
   const { scrollYProgress } = useScroll({ container: containerRef });
-  const skillRef = useRef();
+  const skillRef = useRef();//detect when that element enters the viewport.
+
     const isSkillRefInView = useInView(skillRef, { margin: "-100px" });
   const experienceRef = useRef();
   const isExperienceRefInView = useInView(experienceRef, { margin: "-100px" });
@@ -20,7 +26,7 @@ export default function AboutPage() {
       transition={{ duration: 1 }}
     >
 {/* main div */}
-<div className="h-full overflow-scroll lg:flex" ref={containerRef}>
+<div className="h-screen overflow-scroll lg:flex" ref={containerRef}>
   {/* text container */}
    <div className='p-4 sm:p-8 md:p-12 lg:p-20 xl:p-48 flex flex-col gap-24 md:gap-32 lg:gap-48 xl:gap-56 lg:w-2/3 lg:pr-0 xl:w-1/2'>
     {/* biography container */}
@@ -140,9 +146,7 @@ m-1282 -75 c2 -320 -25 -569 -84 -763 l-13 -45 -12 65 c-6 36 -21 135 -32 220
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 JavaScript
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                TypeScript
-              </div>
+             
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 React.js
               </div>
@@ -158,51 +162,32 @@ m-1282 -75 c2 -320 -25 -569 -84 -763 l-13 -45 -12 65 c-6 36 -21 135 -32 220
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 MongoDB
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                PostgreSQL
-              </div>
+             
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Node.js
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Nest.js
-              </div>
+             
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Express.js
               </div>
+              
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Spring Boot
+               HTML
               </div>
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                GraphQL
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Apollo
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Redux
+               CSS
               </div>
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Framer Motion
               </div>
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Three.js
+               DaisyUI
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                WebGL
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Webpack
-              </div>
+              
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Vite
               </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                Docker
-              </div>
-              <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
-                AWS
-              </div>
+              
               <div className="rounded  p-2 text-sm cursor-pointer bg-black text-white hover:bg-white hover:text-black">
                 Firebase
               </div>
